@@ -12,21 +12,19 @@ public class DatabaseConnectionManager {
     private static Connection conn;
 
     public static Connection getConnection(){
+        if(conn != null){
+            return conn;
+        }
 
-        hostname="jdbc:mysql://tobiasogjessica.mysql.database.azure.com/wish";
+        hostname="jdbc:mysql://tobiasogjessica.mysql.database.azure.com/CarSubData";
         username="tobiasS";
         password="Corona19";
 
         try{
-            conn= DriverManager.getConnection(hostname,username,password);
-        }  catch (SQLException e){
-            System.out.println("Kan ikke forbinde til database");
-            throw new RuntimeException(e);
+            conn = DriverManager.getConnection(hostname,username,password);
+        }  catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        System.out.println("forbindelse til database ok");
-
-
 
         return conn;
 

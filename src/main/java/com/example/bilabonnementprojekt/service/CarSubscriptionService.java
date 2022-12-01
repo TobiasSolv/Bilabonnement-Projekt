@@ -2,24 +2,22 @@ package com.example.bilabonnementprojekt.service;
 
 import com.example.bilabonnementprojekt.model.CarSubscription;
 import com.example.bilabonnementprojekt.repository.CarSubscriptionRepository;
-import org.springframework.web.context.request.WebRequest;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Service
 public class CarSubscriptionService {
 
-    CarSubscriptionRepository repo = new CarSubscriptionRepository();
+    CarSubscriptionRepository carSubscriptionRepository;
 
-
-    public List<CarSubscription> getCarSubscription(){
-
-        return repo.getCarSubscription();
+    public CarSubscriptionService(CarSubscriptionRepository carSubscriptionRepository){
+        this.carSubscriptionRepository = carSubscriptionRepository;
     }
 
-    public void create(WebRequest req) {
-        CarSubscription CarSubscriptionList = new CarSubscription(req.getParameter("CarSubscription"));
 
-        repo.create(CarSubscriptionList);
+
+    public CarSubscription getAll(){
+        return (CarSubscription) carSubscriptionRepository.getAllCarSubscription();
     }
+
 
 }
