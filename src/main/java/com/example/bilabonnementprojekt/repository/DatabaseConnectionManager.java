@@ -16,7 +16,7 @@ public class DatabaseConnectionManager {
             return conn;
         }
 
-        hostname="jdbc:mysql://tobiasogjessica.mysql.database.azure.com/CarSubData";
+        hostname="jdbc:mysql://tobiasogjessica.mysql.database.azure.com/carsubdata";
         username="tobiasS";
         password="Corona19";
 
