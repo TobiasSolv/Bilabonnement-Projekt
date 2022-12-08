@@ -14,13 +14,20 @@
     <h3>Get All</h3>
 
     <tr th:each="subInfo: ${carList}">
-        <td th:text="'id: '+ ${subInfo.id}"></td>
+        <td th:text="'id: '+ ${subInfo.id} " ></td>
+        <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Name: '+ ${subInfo.name}"></td>
-        <td th:text="'Last name'+ ${subInfo.lastName}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Last name: '+ ${subInfo.lastName}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Address: '+ ${subInfo.address}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Phone number: '+ ${subInfo.phoneNumber}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Email: '+ ${subInfo.email}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Car: '+ ${subInfo.car}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Sub price: '+ ${subInfo.subPrice}"></td>
     </tr>
 
