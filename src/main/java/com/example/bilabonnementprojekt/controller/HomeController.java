@@ -44,5 +44,10 @@ public class HomeController {
         return "getAllCarSubscription";
     }
 
+    @GetMapping("/damage")
+    public String damage(){
+
+        return damage();
+    }
 
 }
