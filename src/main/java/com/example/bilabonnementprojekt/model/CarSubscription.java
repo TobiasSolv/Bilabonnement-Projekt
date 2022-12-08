@@ -17,7 +17,16 @@ public class CarSubscription {
         this.email = email;
     }
 
+    public CarSubscription(String name, String address, String phoneNumber, String email){
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
 
+    public CarSubscription(){
+
+    }
 
     public int getId() {
         return id;

@@ -22,14 +22,18 @@ public class HomeController {
         this.carSubscriptionRepository = carSubscriptionRepository;
     }
 
-    @GetMapping("/")
-    public String create(Model model){
-        model.addAttribute("create",carSubscriptionRepository.create());
-        //return "create";
-        return "getAllCarSubscription";
+    @GetMapping("/homepage")
+    public String homepage(){
+        return "homepage";
     }
 
-    @GetMapping("/")
+    @PostMapping("/create")
+    public String create(CarSubscription carSubscription){
+        carSubscriptionRepository.create(carSubscription);
+        return "redirect:/homepage";
+    }
+
+    @GetMapping("/getAllCarSubscription")
     public String getAllCarSubscription(Model model){
         model.addAttribute("carList",carSubscriptionService.getAll());
         return "getAllCarSubscription";

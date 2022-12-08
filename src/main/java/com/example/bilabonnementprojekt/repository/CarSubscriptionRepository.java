@@ -38,29 +38,22 @@ public class CarSubscriptionRepository {
         return carSubscriptions;
     }
 
-    public List<CarSubscription> create(CarSubscription carSubscription){
-        List<CarSubscription> carSubscriptions = new ArrayList<>();
+    public void create(CarSubscription carSubscription){
+
         try {
-            PreparedStatement psts = conn.prepareStatement("INSERT INTO carsubscription (id, name, address, phoneNumber, email) VALUES (?,?,?,?,?)");
-            ResultSet resultSet = psts.executeQuery();
-            while (resultSet.next()) {
-                carSubscriptions.add(new CarSubscription((
-                        psts.setInt(1,carSubscription.getId()),
-                        psts.setString(2, carSubscription.getName()),
-                        psts.setString(3, carSubscription.getAddress()),
-                        psts.setString(4, carSubscription.getPhoneNumber()),
-                        psts.setString(5, carSubscription.getEmail())
-                        ));
+            PreparedStatement psts = conn.prepareStatement("INSERT INTO carsubscription (name, address, phoneNumber, email) VALUES (?,?,?,?)");
+            psts.setString(1,carSubscription.getName());
+            psts.setString(2,carSubscription.getAddress());
+            psts.setString(3,carSubscription.getPhoneNumber());
+            psts.setString(4,carSubscription.getEmail());
+            psts.executeUpdate();
 
-
-
-            }
 
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
 
-        return carSubscriptions;
+
     }
 
 
