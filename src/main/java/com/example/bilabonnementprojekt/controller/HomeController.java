@@ -27,6 +27,11 @@ public class HomeController {
         return "homepage";
     }
 
+    @GetMapping("/registerNewCarAgreement")
+    public String registerNewCarAgreement(){
+        return "registerNewCarAgreement";
+    }
+
     @PostMapping("/create")
     public String create(CarSubscription carSubscription){
         carSubscriptionRepository.create(carSubscription);
