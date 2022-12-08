@@ -9,15 +9,6 @@ import java.util.List;
 @Service
 public class CarSubscriptionService {
 
-    CarSubscriptionRepository carSubscriptionRepository;
-
-    public CarSubscriptionService(CarSubscriptionRepository carSubscriptionRepository){
-        this.carSubscriptionRepository = carSubscriptionRepository;
-    }
-
-    public List<CarSubscription> getAll(){
-        return carSubscriptionRepository.getAllCarSubscription();
-    }
 
 
 

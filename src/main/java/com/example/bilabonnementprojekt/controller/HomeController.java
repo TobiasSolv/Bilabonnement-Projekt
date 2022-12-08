@@ -12,13 +12,10 @@ import org.springframework.web.context.request.WebRequest;
 @Controller
 public class HomeController {
 
-    CarSubscriptionService carSubscriptionService;
+
     CarSubscriptionRepository carSubscriptionRepository;
 
-
-
-    public HomeController(CarSubscriptionService carSubscriptionService, CarSubscriptionRepository carSubscriptionRepository){
-        this.carSubscriptionService = carSubscriptionService;
+    public HomeController( CarSubscriptionRepository carSubscriptionRepository){
         this.carSubscriptionRepository = carSubscriptionRepository;
     }
 
@@ -40,7 +37,7 @@ public class HomeController {
 
     @GetMapping("/getAllCarSubscription")
     public String getAllCarSubscription(Model model){
-        model.addAttribute("carList",carSubscriptionService.getAll());
+        model.addAttribute("carList",carSubscriptionRepository.getAllCarSubscription());
         return "getAllCarSubscription";
     }
 
