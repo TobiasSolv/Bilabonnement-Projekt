@@ -14,13 +14,15 @@ public class HomeController {
 
 
     CarSubscriptionRepository carSubscriptionRepository;
+    CarSubscriptionService carSubscriptionService;
 
-    public HomeController( CarSubscriptionRepository carSubscriptionRepository){
+    public HomeController( CarSubscriptionRepository carSubscriptionRepository, CarSubscriptionService carSubscriptionService){
         this.carSubscriptionRepository = carSubscriptionRepository;
+        this.carSubscriptionService = carSubscriptionService;
     }
 
     @GetMapping("/homepage")
-    public String homepage(){
+    public String homepage(Model model){
         return "homepage";
     }
 
@@ -41,10 +43,47 @@ public class HomeController {
         return "getAllCarSubscription";
     }
 
+    @PostMapping("/calculate")
+    public String calculate(WebRequest webRequest, Model model){
+        System.out.println(webRequest.getParameter("price1"));
+        System.out.println(webRequest.getParameter("price2"));
+        System.out.println(webRequest.getParameter("price3"));
+        System.out.println(webRequest.getParameter("price4"));
+       int price1;
+       int price2;
+       int price3;
+       int price4;
+        if (webRequest.getParameter("price1").equals("")){
+            price1 = 0;
+        }else{
+            price1 = Integer.parseInt( webRequest.getParameter("price1"));
+        }
+        if (webRequest.getParameter("price2").equals("")){
+            price2 = 0;
+        }else{
+            price2 = Integer.parseInt( webRequest.getParameter("price2"));
+        }
+        if (webRequest.getParameter("price3").equals("")){
+            price3 = 0;
+        }else{
+            price3 = Integer.parseInt( webRequest.getParameter("price3"));
+        }
+        if (webRequest.getParameter("price4").equals("")){
+            price4 = 0;
+        }else{
+            price4 = Integer.parseInt( webRequest.getParameter("price4"));
+        }
+
+        model.addAttribute("total",price1 + price2 + price3 + price4);
+
+        return "damageTotalPrice";
+
+
+    }
+
     @GetMapping("/damage")
     public String damage(){
-
-        return damage();
+        return "damage";
     }
 
 }
