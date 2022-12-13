@@ -1,5 +1,6 @@
 package com.example.bilabonnementprojekt.controller;
 
+import com.example.bilabonnementprojekt.model.Car;
 import com.example.bilabonnementprojekt.model.CarSubscription;
 import com.example.bilabonnementprojekt.repository.CarSubscriptionRepository;
 import com.example.bilabonnementprojekt.service.CarSubscriptionService;
@@ -21,66 +22,41 @@ public class HomeController {
         this.carSubscriptionService = carSubscriptionService;
     }
 
+    // Use to go to homepage page.
     @GetMapping("/homepage")
-    public String homepage(Model model){
+    public String homepage(){
         return "homepage";
     }
 
+    // Use to go to registerNewCarAgreement page.
     @GetMapping("/registerNewCarAgreement")
     public String registerNewCarAgreement(){
         return "registerNewCarAgreement";
     }
 
+    // Use to create new car agreement.
     @PostMapping("/create")
-    public String create(CarSubscription carSubscription){
-        carSubscriptionRepository.create(carSubscription);
+    public String create(CarSubscription carSubscription, Car car){
+        carSubscriptionRepository.create(carSubscription, car);
         return "redirect:/homepage";
     }
 
+    // Use to go to getAllCarSubscription page and use create method.
     @GetMapping("/getAllCarSubscription")
     public String getAllCarSubscription(Model model){
         model.addAttribute("carList",carSubscriptionRepository.getAllCarSubscription());
+        model.addAttribute("carList",carSubscriptionRepository.getCar());
         return "getAllCarSubscription";
     }
 
+    // Use to calculate total price and post what you have wrote, the individual price and damage, on damage page.
     @PostMapping("/calculate")
     public String calculate(WebRequest webRequest, Model model){
-        System.out.println(webRequest.getParameter("price1"));
-        System.out.println(webRequest.getParameter("price2"));
-        System.out.println(webRequest.getParameter("price3"));
-        System.out.println(webRequest.getParameter("price4"));
-       int price1;
-       int price2;
-       int price3;
-       int price4;
-        if (webRequest.getParameter("price1").equals("")){
-            price1 = 0;
-        }else{
-            price1 = Integer.parseInt( webRequest.getParameter("price1"));
-        }
-        if (webRequest.getParameter("price2").equals("")){
-            price2 = 0;
-        }else{
-            price2 = Integer.parseInt( webRequest.getParameter("price2"));
-        }
-        if (webRequest.getParameter("price3").equals("")){
-            price3 = 0;
-        }else{
-            price3 = Integer.parseInt( webRequest.getParameter("price3"));
-        }
-        if (webRequest.getParameter("price4").equals("")){
-            price4 = 0;
-        }else{
-            price4 = Integer.parseInt( webRequest.getParameter("price4"));
-        }
-
-        model.addAttribute("total",price1 + price2 + price3 + price4);
-
+        carSubscriptionService.calculate(webRequest,model);
         return "damageTotalPrice";
-
-
     }
 
+    // Use to go to damage page.
     @GetMapping("/damage")
     public String damage(){
         return "damage";

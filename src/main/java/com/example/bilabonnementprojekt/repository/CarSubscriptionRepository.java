@@ -1,5 +1,6 @@
 package com.example.bilabonnementprojekt.repository;
 
+import com.example.bilabonnementprojekt.model.Car;
 import com.example.bilabonnementprojekt.model.CarSubscription;
 import org.springframework.stereotype.Repository;
 
@@ -17,10 +18,11 @@ public class CarSubscriptionRepository {
 
     private Connection conn = DatabaseConnectionManager.getConnection();
 
+    // Use to get all columns in table carsubscrition to print out what is in them.
     public List<CarSubscription> getAllCarSubscription() {
         List<CarSubscription> carSubscriptions = new ArrayList<>();
         try{
-            PreparedStatement psts = conn.prepareStatement("SELECT * FROM carsubscription");
+            PreparedStatement psts = conn.prepareStatement("SELECT * FROM carSubscription");
             ResultSet resultSet = psts.executeQuery();
 
             while (resultSet.next()) {
@@ -30,10 +32,7 @@ public class CarSubscriptionRepository {
                         resultSet.getString("lastName"),
                         resultSet.getString("address"),
                         resultSet.getString("phoneNumber"),
-                        resultSet.getString("email"),
-                        resultSet.getString("car"),
-                        resultSet.getString("subPrice")
-
+                        resultSet.getString("email")
                 ));
             }
         }catch(SQLException e){
@@ -42,27 +41,56 @@ public class CarSubscriptionRepository {
         return carSubscriptions;
     }
 
-    public void create(CarSubscription carSubscription){
+    public List<Car> getCar(){
+        List<Car> cars = new ArrayList<>();
+        try{
+            PreparedStatement psts = conn.prepareStatement("SELECT * FROM car");
+            ResultSet resultSet = psts.executeQuery();
+            while (resultSet.next()) {
+                cars.add(new Car(
+                        resultSet.getInt("carId"),
+                        resultSet.getString("carName")
+
+                ));
+            }
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return cars;
+    }
+
+    // Use to create a new subscription and a new car.
+    public void create(CarSubscription carSubscription, Car car){
 
         try {
-            PreparedStatement psts = conn.prepareStatement("INSERT INTO carsubscription (name, lastName, address, phoneNumber, email, car, subPrice) VALUES (?,?,?,?,?,?,?)");
+            PreparedStatement psts = conn.prepareStatement("INSERT INTO carsubscription (name, lastName, address, phoneNumber, email) VALUES (?,?,?,?,?)");
             psts.setString(1,carSubscription.getName());
             psts.setString(2,carSubscription.getLastName());
             psts.setString(3,carSubscription.getAddress());
             psts.setString(4,carSubscription.getPhoneNumber());
             psts.setString(5,carSubscription.getEmail());
-            psts.setString(6,carSubscription.getCar());
-            psts.setString(7,carSubscription.getSubPrice());
             psts.executeUpdate();
 
 
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            PreparedStatement psts = conn.prepareStatement("INSERT INTO car (carName, carId) VALUES (?,?)");
+            psts.setString(1,car.getCarName());
+            psts.setInt(2,car.getCarId());
+            psts.executeUpdate();
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
 
     }
-
 
 
 

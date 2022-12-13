@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html  lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,7 +14,11 @@
     <h3>Get All</h3>
 
     <tr th:each="subInfo: ${carList}">
-        <td th:text="'id: '+ ${subInfo.id} " ></td>
+        <td th:text="'Car id: '+ ${subInfo.carId}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Car name: '+ ${subInfo.carName}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Id: '+ ${subInfo.id}"></td>
         <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Name: '+ ${subInfo.name}"></td>
         <th></th><th></th><th></th><th></th><th></th>
@@ -25,10 +29,6 @@
         <td th:text="'Phone number: '+ ${subInfo.phoneNumber}"></td>
         <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Email: '+ ${subInfo.email}"></td>
-        <th></th><th></th><th></th><th></th><th></th>
-        <td th:text="'Car: '+ ${subInfo.car}"></td>
-        <th></th><th></th><th></th><th></th><th></th>
-        <td th:text="'Sub price: '+ ${subInfo.subPrice}"></td>
     </tr>
 
 
@@ -36,3 +36,4 @@
 
 </body>
 </html>
+

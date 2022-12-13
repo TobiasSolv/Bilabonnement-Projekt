@@ -11,6 +11,7 @@ public class DatabaseConnectionManager {
     private static String password;
     private static Connection conn;
 
+    // Use to connect to our database
     public static Connection getConnection(){
         if(conn != null){
             return conn;
