@@ -3,30 +3,30 @@ CREATE DATABASE carsubdata;
 USE carsubdata;
 
 CREATE TABLE car(
-    carId int AUTO_INCREMENT,
-    carName varchar(1000),
-    PRIMARY KEY (carId)
+                    carId int AUTO_INCREMENT,
+                    carName varchar(1000),
+                    PRIMARY KEY (carId)
 );
 
 CREATE TABLE carsubscription(
-    name varchar(50),
-    lastName varchar(50),
-    address varchar(100),
-    email varchar(100),
-    phoneNumber int,
-    id int AUTO_INCREMENT,
-    carId int,
-    PRIMARY KEY (id),
-    FOREIGN KEY (carId) REFERENCES car (carId)
+                                name varchar(50),
+                                lastName varchar(50),
+                                address varchar(100),
+                                email varchar(100),
+                                phoneNumber int,
+                                id int AUTO_INCREMENT,
+                                carId int,
+                                PRIMARY KEY (id),
+                                FOREIGN KEY (carId) REFERENCES car (carId)
 );
 
-INSERT INTO car (carId, carName) VALUES (1, Opel Crossland GS Line 110 HK ML,        3.199 kr./md);
-INSERT INTO car (carId, carName) VALUES (2, Opel Corsa Edition 100 HK ML,            2.999 kr./md);
-INSERT INTO car (carId, carName) VALUES (3, Citroën C5 Aircross Prestige 225 HK ML,  5.499 kr./md);
-INSERT INTO car (carId, carName) VALUES (4, Citroën C3 Aircross Feel 110 HK ML,      3.199 kr./md);
-INSERT INTO car (carId, carName) VALUES (5, Peugeot 208 Active 75HK ML,              3.499 kr./md);
-INSERT INTO car (carId, carName) VALUES (6, Peugeot 2008 Active Pack 130 HK. ML,     3.899 kr./md);
-INSERT INTO car (carId, carName) VALUES (7, Peugeot 2008 Allure Pack 130 HK ML,      4.299 kr./md);
-INSERT INTO car (carId, carName) VALUES (8, Peugeot 2008 Allure Pack 130 HK AUT. ML, 4.499 kr./md);
-INSERT INTO car (carId, carName) VALUES (9, DS 4 Performance LinePack 130 HK. ML,    5.499 kr./md);
-INSERT INTO car (carId, carName) VALUES (10, Peugeot 3008 GT 130HK AUT. ML,          5.999 kr./md);
+INSERT INTO car (carId, carName) VALUES (1, 'Opel Crossland GS Line 110 HK ML,        3.199 kr./md');
+INSERT INTO car (carId, carName) VALUES (2, 'Opel Corsa Edition 100 HK ML,            2.999 kr./md');
+INSERT INTO car (carId, carName) VALUES (3, 'Citroën C5 Aircross Prestige 225 HK ML,  5.499 kr./md');
+INSERT INTO car (carId, carName) VALUES (4, 'Citroën C3 Aircross Feel 110 HK ML,      3.199 kr./md');
+INSERT INTO car (carId, carName) VALUES (5, 'Peugeot 208 Active 75HK ML,              3.499 kr./md');
+INSERT INTO car (carId, carName) VALUES (6, 'Peugeot 2008 Active Pack 130 HK. ML,     3.899 kr./md');
+INSERT INTO car (carId, carName) VALUES (7, 'Peugeot 2008 Allure Pack 130 HK ML,      4.299 kr./md');
+INSERT INTO car (carId, carName) VALUES (8, 'Peugeot 2008 Allure Pack 130 HK AUT. ML, 4.499 kr./md');
+INSERT INTO car (carId, carName) VALUES (9, 'DS 4 Performance LinePack 130 HK. ML,    5.499 kr./md');
+INSERT INTO car (carId, carName) VALUES (10, 'Peugeot 3008 GT 130HK AUT. ML,          5.999 kr./md');

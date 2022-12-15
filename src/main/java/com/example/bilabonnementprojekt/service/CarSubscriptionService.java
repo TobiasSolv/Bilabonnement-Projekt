@@ -20,11 +20,6 @@ public class CarSubscriptionService {
         int price3;
         int price4;
 
-        String damage1;
-        String damage2;
-        String damage3;
-        String damage4;
-
         if (webRequest.getParameter("price1").equals("")){
             price1 = 0;
         }else{
@@ -52,6 +47,10 @@ public class CarSubscriptionService {
         model.addAttribute("price3",price3);
         model.addAttribute("price4",price4);
 
+        String damage1;
+        String damage2;
+        String damage3;
+        String damage4;
 
         if(webRequest.getParameter("damage1").equals("")){
             damage1 = "";

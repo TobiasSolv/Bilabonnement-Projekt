@@ -19,7 +19,7 @@ public class CarSubscriptionRepository {
 
     private Connection conn = DatabaseConnectionManager.getConnection();
 
-    // Use to get all columns in table carsubscrition to print out what is in them.
+    // Use to get all columns in table carsubscrition and car to print out what is in them.
     public List<AllCarsAndSubs> getAllCarsAndSubs(){
         List<AllCarsAndSubs> allCarsAndSubsList = new ArrayList<>();
         try{
