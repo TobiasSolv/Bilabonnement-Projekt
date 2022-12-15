@@ -20,50 +20,6 @@ public class CarSubscriptionRepository {
     private Connection conn = DatabaseConnectionManager.getConnection();
 
     // Use to get all columns in table carsubscrition to print out what is in them.
-    public List<CarSubscription> getAllCarSubscription() {
-        List<CarSubscription> carSubscriptions = new ArrayList<>();
-        try{
-            PreparedStatement psts = conn.prepareStatement("SELECT * FROM carSubscription");
-            ResultSet resultSet = psts.executeQuery();
-
-            while (resultSet.next()) {
-                carSubscriptions.add(new CarSubscription(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("lastName"),
-                        resultSet.getString("address"),
-                        resultSet.getString("phoneNumber"),
-                        resultSet.getString("email"),
-                        resultSet.getInt("carId")
-
-                ));
-            }
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-        return carSubscriptions;
-    }
-
-    public List<Car> getCar(){
-        List<Car> cars = new ArrayList<>();
-        try{
-            PreparedStatement psts = conn.prepareStatement("SELECT * FROM car");
-            ResultSet resultSet = psts.executeQuery();
-            while (resultSet.next()) {
-                cars.add(new Car(
-                        resultSet.getInt("carId"),
-                        resultSet.getString("carName")
-
-                ));
-            }
-
-        }catch(SQLException e){
-            throw new RuntimeException(e);
-        }
-
-        return cars;
-    }
-
     public List<AllCarsAndSubs> getAllCarsAndSubs(){
         List<AllCarsAndSubs> allCarsAndSubsList = new ArrayList<>();
         try{
