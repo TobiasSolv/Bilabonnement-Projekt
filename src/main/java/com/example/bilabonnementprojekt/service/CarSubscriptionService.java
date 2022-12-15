@@ -12,8 +12,8 @@ import java.util.List;
 @Service
 public class CarSubscriptionService {
 
+
     // Use to calculate the total price for damages and to post what damages and price per damage.
-    @PostMapping("/calculate")
     public String calculate(WebRequest webRequest, Model model){
         int price1;
         int price2;

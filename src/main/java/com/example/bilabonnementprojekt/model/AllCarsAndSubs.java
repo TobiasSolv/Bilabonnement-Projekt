@@ -1,43 +1,59 @@
 package com.example.bilabonnementprojekt.model;
 
-public class CarSubscription {
+public class AllCarsAndSubs {
 
+    private int carId;
+    private String carName;
     private int id;
     private String name;
     private String lastName;
     private String address;
     private String phoneNumber;
     private String email;
-    private int carID;
 
-
-
-
-
-    public CarSubscription(int id, String name, String lastName, String address, String phoneNumber, String email, int carID) {
+    public AllCarsAndSubs(int carId, String carName, int id, String name, String lastName, String address, String phoneNumber, String email){
+        this.carId = carId;
+        this.carName = carName;
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.carID = carID;
-
 
     }
 
-    public CarSubscription(String name, String lastName, String address, String phoneNumber, String email){
+    public AllCarsAndSubs(String carName, int id, String name, String lastName, String address, String phoneNumber, String email){
+        this.carName = carName;
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.email = email;
 
+    }
+
+   public AllCarsAndSubs(){
 
     }
 
-    public CarSubscription(){
 
+
+    public int getCarId() {
+        return carId;
+    }
+
+    public void setCarId(int carId) {
+        this.carId = carId;
+    }
+
+    public String getCarName() {
+        return carName;
+    }
+
+    public void setCarName(String carName) {
+        this.carName = carName;
     }
 
     public int getId() {
@@ -86,13 +102,5 @@ public class CarSubscription {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public int getCarID() {
-        return carID;
-    }
-
-    public void setCarID(int carID) {
-        this.carID = carID;
     }
 }

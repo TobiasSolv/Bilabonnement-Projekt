@@ -44,8 +44,7 @@ public class HomeController {
     // Use to go to getAllCarSubscription page and use create method.
     @GetMapping("/getAllCarSubscription")
     public String getAllCarSubscription(Model model){
-        model.addAttribute("carList",carSubscriptionRepository.getAllCarSubscription());
-        model.addAttribute("carList",carSubscriptionRepository.getCar());
+        model.addAttribute("carList2",carSubscriptionRepository.getAllCarsAndSubs());
         return "getAllCarSubscription";
     }
 

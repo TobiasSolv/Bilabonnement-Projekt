@@ -14,6 +14,36 @@
     <h3>Get All</h3>
 
     <tr th:each="subInfo: ${carList}">
+        <td th:text="'Id: '+ ${subInfo.id}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Name: '+ ${subInfo.name}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Last name: '+ ${subInfo.lastName}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Address: '+ ${subInfo.address}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Phone number: '+ ${subInfo.phoneNumber}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Email: '+ ${subInfo.email}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Car id: '+ ${subInfo.carID}"></td>
+    </tr>
+
+
+</table>
+
+<table>
+
+    <tr th:each="subInfo: ${carList1}">
+        <td th:text="'Car id: '+ ${subInfo.carId}"></td>
+        <th></th><th></th><th></th><th></th><th></th>
+        <td th:text="'Car name: '+ ${subInfo.carName}"></td>
+    </tr>
+
+</table>
+
+<table>
+    <tr th:each="subInfo: ${carList2}">
         <td th:text="'Car id: '+ ${subInfo.carId}"></td>
         <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Car name: '+ ${subInfo.carName}"></td>
@@ -30,7 +60,6 @@
         <th></th><th></th><th></th><th></th><th></th>
         <td th:text="'Email: '+ ${subInfo.email}"></td>
     </tr>
-
 
 </table>
 
