@@ -1,2 +1,95 @@
-CaseBilabonnement.dk udlejer biler på abonnement. I dag håndteres alle processer i excel, hvilket ikke er hensigtsmæssigt,da der er mange interessenter indblandet i processen og intet helst må gå galt.De har i dag et system der styrer kundernes booking af bilerpå: https://bilabonnement.dk/.Etbilabonnement kan strække sig fra 120 dage til unlimited (36 måneder). Udvalget af biler skifter løbende, og de aktuelle kan findes på hjemmesiden: -https://bilabonnement.dk/bilabonnement-minileasing-https://bilabonnement.dk/se-alle-bilerBilabonnement har på nuværende tidspunkt udviklet et kundevendt system, hvor potentielle lejere kan vælge bil, aftale & afhentningssted ved at indtaste data på hjemmesiden.Efter kunden har valgt abonnement, prisoverslag, indtastet kundeinformation & afhentningssted håndteres de resterende processer i Excel. Som tidligere nævnt har de behov for et system der kan akkommodere den resterende rejse for bilen. Fra afhentningssted, til tilbagelevering og videre til skaderegistrering. Bilabonnement efterspørger et system til internt brug.Brugerne af systemet er opdelt i tre typer:-Dataregistrering –registrering af nye lejeaftaler-Skade og udbedring–registrering af fejl/mangler efter lejeperiode-Forretningsudviklere–rapportering og overvågningDet er op til jer at udfærdige en prototype/minimal viableproduct, der hjælper de forskellige brugere i bilabonnement.dk. Minimumskrav:-Dataregistrering skal kunne registrere nye lejeaftaler-Skade og udbedring skal kunne registrere en fejl og mangler samt pris pr. fejloDette skal kunne ske på biler, der er blevet tilbageleveret & har overstået lejeperiode-Forretningsudviklere skal kunne se:oHvor mange biler er lejet udoHvad er sammenlagt pris på nuværende udlejede biler?
-EksamensprojektKEA Datamatiker 2. semesterYderligere inspiration til udvidelse af minimumskrav kan findes i bilaget:  samarbejdsdokumentationen med Bilabonnement.dk herunder Samarbejdsdokumentation:Styring af administrative processer i virksomhed der lejer biler ud på abonnement.Vi er et mindre selskab i K.W. Bruun & Co. Som hedder Bilabonnement A/S. Vores forretningsgrundlag er udlejning af biler på abonnement, som i Limited er på 150 dage (5 måneder) og i Unlimited er fra 3 måneder og op.I dag håndteres alle vores processer i excel, hvilket ikke er hensigtsmæssigt da der er mange interessenter indblandet i processen og intet helst må gå galt.Vi har i dag et system der styrer kundernes booking af biler og indsendelse af information til kreditvurdering –det er også i dette system vi uploader antal stk. af de respektive biler, hvilke farver de har etc. Som kunderne kan vælge imellem på vores hjemmeside.Når kunderne bestiller biler, er der i dag mulighed for at få bilen udleveret hos Bilabonnement eller, hvis der er tale om en DS, hos den enkelte DS forhandler. Tanken er, at vi på sigt vil have forskellige udleveringslokationer rundt om i landet, så der skal være en form for fleksibilitet i systemet.Når bilerne kommer retur efter endt udlejning, skal de gennemgås for skader, fejl og mangler og kunden skal have tilsendt en skadesrapport (hvis der er skader på bilen) og denne skal ligeledes gemmes i systemet.Bilerne bliver, hvis de afleveres hos os, gennemgået af vores egne medarbejdere og der udarbejdes en rapport typisk med kundens tilstedeværelse. Hvis bilen er udleveret fra DS forhandler, skal bilerne leveres tilbage til FDM, som så forestår gennemgang af bilen. Herefter sender FDM en elektronisk rapport på bilen til os. Da bilerne er indregistreret på forholdsmæssig registreringsafgift –dvs. der er kun betalt registreringsafgift for den præcise periode bilen er udlejet og her opstår der et problem når FDM gennemgår bilen, idet bilen bliver leveret til FDM præcis den sidste dag bilen må have nummerplader på og FDM sender først rapporten til os dagen efter de har gennemgået bilen, så disse biler bliver alle afmeldt én dag for sent. For sen afmelding af nummerplader, uanset om det kun er en dag, koster en ekstra måneds registreringsafgift samt rente.Når bilerne kommer retur, registrerer vi dette i vores excelark. Dette sker ved at vores ansvarlige for returnering giver besked om dette, som tjekker hvem bilen er solgt til  -alle biler er typisk solgt inden registrering –og giver økonomi besked om at fakturere bilen til køber.Når vi har modtaget betaling fra køber, giver økonomi besked retur om at pengene er modtaget. Herefter bestilles der transport til bilen på den med køber aftalte måde. Såfremt bilen står ved FDM frigives bilen til transport i et særligt system, som sikrer at vognmanden ikke kører forgæves ud efter bilen.Systemet skal laves som flerbrugersystem, så både returnering af biler, notering af aftaler etc. Kan håndteres af flere personer samtidig, ligesom det skal være muligt at udtrække dataom bestand etc. Samt oversigt over hvor mange biler der kommer retur den enkelte dag, hvor mange biler den enkelte opkøber har købt etc.Det ville være rart, hvis der i systemet kunne indbygges alarmer –dvs. der gives besked til XX såfremt bestanden af YY biler er under Z, eller at en bil ikke har skiftet status fra SKADET til klar til transport indfor XX dage og det kan være flere.
+Case: Bilabonnement.dk
+Bilabonnement.dk udlejer biler på abonnement. I dag håndteres langt størstedelen af processerne manuelt i Excel, hvilket ikke er hensigtsmæssigt, da der er mange interessenter involveret, og fejl kan få store konsekvenser.
+
+De har allerede et kundevendt system, hvor brugere kan booke biler via hjemmesiden:
+🔗 bilabonnement.dk
+
+Et bilabonnement kan vare fra 120 dage og op til 36 måneder (Unlimited). Udvalget af biler skifter løbende og kan ses her:
+🔗 Minileasing
+🔗 Se alle biler
+
+Nuværende arbejdsgang og behov
+Når kunden vælger bil, abonnement, og afhentningssted, bliver disse oplysninger registreret via hjemmesiden. Herefter overgår alle interne processer til Excel, herunder:
+
+Bekræftelse og håndtering af aftaler
+
+Returnering og vurdering af biler
+
+Skaderegistrering og rapportering
+
+Kommunikation med økonomi og transport
+
+Dette setup er både ineffektivt og risikabelt.
+
+Bilabonnement efterspørger
+Et internt flerbrugersystem til at håndtere hele bilens rejse fra afhentning til returnering, herunder:
+
+Brugertyper og funktionaliteter
+Dataregistrering
+
+Oprette og gemme nye lejeaftaler
+
+Skade og udbedring
+
+Registrere fejl og mangler efter returnering
+
+Tilføje pris pr. fejl
+
+Forretningsudvikling
+
+Rapportering på antal udlejede biler
+
+Beregning af samlet pris på aktive lejeaftaler
+
+Minimumskrav til systemet
+Registrering af nye lejeaftaler
+
+Registrering af fejl/mangler på tilbageleverede biler
+
+Oversigt over:
+
+Antal aktive lejeaftaler
+
+Samlet værdi af udlejede biler
+
+Baggrund og operationelle udfordringer
+Bilabonnement A/S er en del af K.W. Bruun & Co.
+Virksomheden har et eksisterende system til kundebooking og kreditvurdering, men alt derudover – logistik, skaderegistrering, fakturering og bilstatus – foregår i Excel.
+
+Når biler returneres:
+
+Hos Bilabonnement gennemgås bilen af egne medarbejdere med kunde til stede
+
+Hos DS-forhandlere afleveres bilen til FDM, som udarbejder skaderapport næste dag
+→ Problem: Registreringsafgiften gælder kun til sidste lejedag. Når FDM rapporterer dagen efter, udløser det en ekstra måneds registreringsafgift og renter.
+
+Desuden:
+
+Salg af biler sker typisk inden returnering
+
+Økonomiafdelingen fakturerer først, når betaling er bekræftet
+
+Transport bestilles herefter og håndteres manuelt – og skal være koordineret med FDMs frigivelse
+
+Ønsker til systemet
+Flerbrugersystem, hvor flere medarbejdere kan:
+
+Notere aftaler
+
+Registrere statusændringer
+
+Se oversigter og trække rapporter
+
+Status og beholdning
+
+Hvor mange biler er retur en given dag?
+
+Hvilke opkøbere har købt hvilke biler?
+
+Notifikationer/alarmer
+
+Lager under minimumsgrænse
+
+Biler står for længe med status "Skadet"
+
+Manglende statusændring inden for angivet tid
